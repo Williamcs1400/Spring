@@ -25,7 +25,22 @@
 		Role(s): <sec:authentication property="principal.authorities" />
 	</p>
 	
+	
+	<sec:authorize access="hasRole('MANAGER')">
+		<a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+		(Only for Manager peeps)
+	
 	<hr>
+	
+	</sec:authorize>
+	
+	<sec:authorize access="hasRole('ADMIN')">
+		<a href="${pageContext.request.contextPath}/systems">It systems Meeting</a>
+		(Only for Admin peeps)
+	
+	<hr>
+	
+	</sec:authorize>
 	
 	<form:form action="${pageContext.request.contextPath}/logout"
 			   method="post">
